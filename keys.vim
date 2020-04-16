@@ -6,8 +6,12 @@ let maplocalleader = ";"
 nnoremap <leader>k :m-2<CR>==
 xnoremap <leader>k :m-2<CR>gv=gv
 
-" Open .vimrc in a split window / Sourcing the content of .vimrc
-nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+" Open neovim config files in a split window Sourcing the content of .vimrc
+nnoremap <leader>ek :vsplit ~/.config/nvim/keys.vim<CR>
+nnoremap <leader>es :vsplit ~/.config/nvim/sets.vim<CR>
+nnoremap <leader>ep :vsplit ~/.config/nvim/plugs.vim<CR>
+
+" Sourcing the content of .vimrc
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " Quote a visual selection
@@ -35,6 +39,8 @@ inoremap <Down>  <nop>
 inoremap <Esc> <nop>
 inoremap jk    <Esc>
 inoremap kj    <Esc>
+vnoremap jk    <Esc> 
+vnoremap kj    <Esc> 
 
 " Window resizing made easier
 nnoremap <silent> <leader>++ :vertical res +7<CR>
@@ -51,3 +57,13 @@ nnoremap <leader><leader> <Esc>/<++><CR>"_c4l
 
 " Append ';' to end of line and create a new line
 inoremap <leader>o <C-o>A;<Esc>o
+
+inoremap ( ()<Left>
+
+let g:ycm_key_list_select_completion = ['<Right>']
+nnoremap <leader>gd :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>gi :YcmCompleter GoToInclude<CR>
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_add_preview_to_completeopt = 0
+set completeopt-=preview
